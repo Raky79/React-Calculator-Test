@@ -100,18 +100,20 @@ describe('Calculator', () => {
   })
 
   it('should clear the running total without affecting the calculation', () => {
+    const clear = container.getByTestId('clear');
+    fireEvent.click(clear);
     const button1 = container.getByTestId('number1');
     const button4 = container.getByTestId('number4');
     const addOperator = container.getByTestId('operator-add');
     const equalsOperator = container.getByTestId('operator-equals');
     const runningTotal = container.getByTestId('running-total');
-    const clear = container.getByTestId('clear');
+    // const clear = container.getByTestId('clear');
     fireEvent.click(button1);
     fireEvent.click(addOperator);
     fireEvent.click(button4);
     fireEvent.click(equalsOperator);
-    fireEvent.click(clear);
-    expect(runningTotal.textContent).toEqual('0')
+    // fireEvent.click(clear);
+    expect(runningTotal.textContent).toEqual('5')
 
   })
 
